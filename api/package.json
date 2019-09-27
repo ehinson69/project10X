@@ -1,0 +1,42 @@
+{
+  "name": "project-9",
+  "version": "0.0.0",
+  "private": true,
+  "main": "bin/www",
+  "scripts": {
+    "start": "npx nodemon ./bin/www",
+    "seed": "cross-env DB_ENABLE_LOGGING=true node './seed'"
+  },
+  "keywords": [],
+  "author": "Liz Hinson",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.18.3",
+    "sequelize-cli": "^5.5.1"
+  },
+  "dependencies": {
+    "basic-auth": "^2.0.1",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "cross-env": "^5.2.0",
+    "debug": "~2.6.9",
+    "express": "^4.16.3",
+    "express-validator": "^6.2.0",
+    "fs": "0.0.1-security",
+    "http-errors": "^1.6.3",
+    "morgan": "~1.9.1",
+    "path": "^0.12.7",
+    "promise.prototype.finally": "^3.1.0",
+    "sequelize": "^5.19.0",
+    "sqlite3": "^4.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git + https://github.com/ehinson69/project-9.git"
+  },
+  "bugs": {
+    "url": "https://github.comehinson69/Project-9/issues"
+  },
+  "homepage": "https://github.com/ehinson69/Project-9#readme"
+}
