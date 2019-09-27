@@ -10,7 +10,7 @@ const usersRouter = require("./routes/users");
 const coursesRouter = require("./routes/courses");
 
 const app = express();
-
+app.use(cors());
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
