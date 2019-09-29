@@ -14,32 +14,32 @@ import CreateCourse from './components/CreateCourse';
 import CourseDetail from './components/CourseDetail';
 import UpdateCourse from './components/UpdateCourse';
 import withContext from './Context';
-import PrivateRoute from './PrivateRoute'; //HOC import
+import PrivateRoute from './PrivateRoute';                //HOC import
 import UserSignIn from './components/UserSignIn';
 import UserSignUp from './components/UserSignUp';
 import UserSignOut from './components/UserSignOut';
 import Forbidden from './components/Forbidden';
 import NotFound from './components/NotFound';
 import UnhandledError from './components/UnhandledError';
-//Defining routes being used
-const HeaderWithContext = withContext(Header); 
+
+const HeaderWithContext = withContext(Header);  //Defining routes being used
 const UserSignInWithContext = withContext(UserSignIn);
 const UserSignUpWithContext = withContext(UserSignUp);
 const UserSignOutWithContext = withContext(UserSignOut);
 const CreateCourseWithContext = withContext(CreateCourse);
 const UpdateCourseWithContext = withContext(UpdateCourse);
 const CourseDetailWithContext = withContext(CourseDetail);
-//Stateless component function
-export default class App extends Component {               
+
+export default class App extends Component {//Stateless component function
+
     constructor() {
         super();
     }
-    //Called after component to get data
-    componentDidMount() {  
+    componentDidMount() {//Called after component to get data
+
     }
     render() {
-    //Routes set up for each task, private route for authentication, create & update courses   
-        return (            
+        return (//Routes set up for each task, private route for authentication, create & update courses
             <Router>  
                 <div>
                     <HeaderWithContext />
