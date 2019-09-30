@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CourseForm from './CourseForm';
 export default class CreateCourse extends Component {
-    state = {                   //Init state for Create Course 
+    state = {//Init state for Create Course 
         title: '',
         description: '',
         estimatedTime: '',
@@ -21,7 +21,7 @@ export default class CreateCourse extends Component {
         const { context } = this.props;
         const authUser = context.authenticatedUser;
 
-        return (        //Return using CourseForm to Create Course
+        return (//Return using CourseForm to Create Course
                  <CourseForm
                     cancel={this.cancel}
                     errors={errors}

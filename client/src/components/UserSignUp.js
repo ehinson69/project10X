@@ -11,9 +11,9 @@ export default class UserSignUp extends Component {
     confirmPassword: '',
     errors: [],
   }
-
+  //Render state
   render() {
-    const {        //Render state 
+    const {         
       firstName,
       lastName,
       emailAddress,

@@ -37,8 +37,8 @@ export default class UpdateCourse extends Component {
                 this.props.history.push('/error');
             });
     }
-
-    render() {      //Render using CourseForm
+    //Render using CourseForm
+    render() {
         const {
             title,
             description,
@@ -48,8 +48,8 @@ export default class UpdateCourse extends Component {
             authorLastName,
             errors,
         } = this.state;
-
-        return (                   //Return using CourseForm
+        //Return using CourseForm
+        return (                   
             <UpdateCourseForm
                 cancel={this.cancel}
                 errors={errors}

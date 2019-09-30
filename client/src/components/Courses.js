@@ -15,14 +15,12 @@ export default class Courses extends Component {
                 this.setState({
                     data: response.data
                 });
-
             })
             .catch(error => {
                 console.log('Error fetching data', error);
-
-                 if (error == 'Error: Request failed with status code 500') {
+                if (error == 'Error: Request failed with status code 500') {
                 window.location.href = '/error';
-                 }
+                }
             });
     }
 
@@ -33,7 +31,6 @@ export default class Courses extends Component {
                 <h3 className="course--title">{dataItem.title}</h3>
             </Link></div>
         );
-
         return (
             <div className="bounds">
                 {dataHtml}

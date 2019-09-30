@@ -6,7 +6,7 @@ export default class Header extends React.PureComponent {
     const { context } = this.props;
     let authUser = null;
 
-    if(context) {    //Added if context get authUser instead of null
+    if(context) {//Added if context get authUser instead of null
       authUser = context.authenticatedUser;
     }
     
@@ -15,7 +15,7 @@ export default class Header extends React.PureComponent {
         <div className="bounds">
           <h1 className="header--logo">Courses</h1>
           <nav>
-            {authUser ? (   //If authUser tenarary then show React Fragment (signin & up)
+            {authUser ? (//If authUser tenarary then show React fragment (SignIn and SignUp)
               <React.Fragment>
                 <span>Welcome, {authUser.name}!</span>
                 <Link to="/signout">Sign Out</Link>
