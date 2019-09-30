@@ -71,10 +71,7 @@ router.post(
       .withMessage('Please include a "title"'),
     check("description")
       .exists({ checkNull: true, checkFalsy: true })
-      .withMessage('Please include a "description"'),
-    check("userId")
-      .exists({ checkNull: true, checkFalsy: true })
-      .withMessage('Please include a "userId"')
+      .withMessage('Please include a "description"')
   ],
   authentication,
   async (req, res, next) => {
@@ -86,15 +83,20 @@ router.post(
       const errorMessages = errors.array().map(error => error.msg);
 
       // Return validation errors
-      const err = new Error(errorMessages);
+      const err = new Error("Validation Error");
+      err.errors = errorMessages;
       err.status = 400;
       next(err);
     } else {
-      const course = new Course({
-        userId: req.body.userId,
-        title: req.body.title,
-        description: req.body.description
-      });
+      const course = Course.build(req.body);
+      course.userId = req.currentUser.id;
+      // const course = Course.build({
+      //   userId: req.currentUser.id,
+      //   title: req.body.title,
+      //   description: req.body.description,
+      //   estimatedTime: req.body.estimatedTime,
+      //   materialsNeeded: req.body.materialsNeeded
+      // });
       try {
         await course.save();
         res.location(`/courses/${course.id}`);
@@ -121,10 +123,7 @@ router.put(
       .withMessage('Please include a "title"'),
     check("description")
       .exists({ checkNull: true, checkFalsy: true })
-      .withMessage('Please include a "description"'),
-    check("userId")
-      .exists({ checkNull: true, checkFalsy: true })
-      .withMessage('Please include a "userId"')
+      .withMessage('Please include a "description"')
   ],
   authentication,
   async (req, res, next) => {
@@ -136,7 +135,8 @@ router.put(
       const errorMessages = errors.array().map(error => error.msg);
 
       // Return the validation errors to the client.
-      const err = new Error(errorMessages);
+      const err = new Error("Validation Error");
+      err.errors = errorMessages;
       err.status = 400;
       next(err);
     } else {
@@ -145,6 +145,8 @@ router.put(
           if (course) {
             const user = req.currentUser;
             if (user.id === course.userId) {
+              const updatedCourse = req.body;
+              updatedCourse.userId = course.userId;
               course.update(req.body).then(() => res.status(204).json(course));
             } else {
               res

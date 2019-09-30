@@ -35,12 +35,12 @@ app.use(function(req, res, next) {
 // local error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get("env") === "development" ? err : {};
+  // res.locals.message = err.message;
+  // res.locals.error = req.app.get("env") === "development" ? err : {};
 
   res.status(err.status || 500).json({
     message: err.message,
-    error: {}
+    errors: err.errors || []
   });
 });
 

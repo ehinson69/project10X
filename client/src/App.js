@@ -1,9 +1,9 @@
-import React, { Component }  from 'react';         //Imports for all routes used
+//Imports for all routes used
+import React, { Component }  from 'react';         
 import './App.css';
-
-
+import './styles/global.css';
 import {
-    BrowserRouter as Router,      //BrowerRouter/Switch
+    BrowserRouter as Router,  
     Route,
     Switch
 } from 'react-router-dom';
@@ -14,7 +14,7 @@ import CreateCourse from './components/CreateCourse';
 import CourseDetail from './components/CourseDetail';
 import UpdateCourse from './components/UpdateCourse';
 import withContext from './Context';
-import PrivateRoute from './PrivateRoute';                //HOC import
+import PrivateRoute from './PrivateRoute';   //HOC import
 import UserSignIn from './components/UserSignIn';
 import UserSignUp from './components/UserSignUp';
 import UserSignOut from './components/UserSignOut';
@@ -31,10 +31,9 @@ const UpdateCourseWithContext = withContext(UpdateCourse);
 const CourseDetailWithContext = withContext(CourseDetail);
 
 export default class App extends Component {//Stateless component function
-
-    constructor() {
-        super();
-    }
+    // constructor() {
+    //     super();
+    // }
     componentDidMount() {//Called after component to get data
 
     }
