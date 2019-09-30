@@ -17,7 +17,7 @@ export default class UpdateCourse extends Component {
 
         context.data.getCourse(id)
             .then(data => {
-                if (data.status == 404) {
+                if (data.status === 404) {
                     this.setState({ errors: [{ message: data.message }] });
                     this.props.history.push('/notfound');
                 } else {
@@ -125,9 +125,9 @@ export default class UpdateCourse extends Component {
 
         context.data.updateCourse(id, course, authUser.username, authUser.password)
             .then(error => {
-                if (error.name == 'SequelizeValidationError') {
+                if (error.name === 'SequelizeValidationError') {
                     this.setState({ errors: error.errors });
-                                } else if (error.status == 403) {
+                                } else if (error.status === 403) {
                     this.setState({ errors: [{message: error.message}] })
                     this.props.history.push('/forbidden');
                 }

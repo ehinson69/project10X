@@ -1,4 +1,4 @@
-import config from './config';
+import config from './Config';
 
 export default class Data {   //Class usses fetch for functions to use API
   api(path, method = 'GET', body = null, requiresAuth = false, credentials = null) {

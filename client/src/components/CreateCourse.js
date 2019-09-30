@@ -96,7 +96,7 @@ export default class CreateCourse extends Component {
             return;
         }
 
-        context.data.createCourse(course, authUser.username, authUser.password)
+        context.data.createCourse(course, authUser.emailAddress, authUser.password)
             .then(errors => {
 
                 if (errors.length) {

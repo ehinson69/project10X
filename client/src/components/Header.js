@@ -17,7 +17,7 @@ export default class Header extends React.PureComponent {
           <nav>
             {authUser ? (//If authUser tenarary then show React Fragment (signin & up)
               <React.Fragment>
-                <span>Welcome, {authUser.name}!</span>
+                <span>Welcome, {authUser.firstName} {authUser.lastName}!</span>
                 <Link to="/signout">Sign Out</Link>
               </React.Fragment>
             ) : (
