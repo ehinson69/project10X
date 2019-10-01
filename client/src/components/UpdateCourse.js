@@ -161,21 +161,34 @@ export default class UpdateCourse extends Component {
 
     context.data
       .updateCourse(id, course, authUser.emailAddress, authUser.password)
-      .then(error => {
-        if (error.name === "SequelizeValidationError") {
-          this.setState({ errors: error.errors });
-        } else if (error.status === 403) {
-          this.setState({ errors: [{ message: error.message }] });
-          this.props.history.push("/forbidden");
+      .then(errors => {
+        if (errors.length) {
+          this.setState({ errors });
         } else {
-            this.setState({ errors: [] });
-            this.props.history.push("/");
+          this.props.history.push('/');
         }
       })
-        .catch((err) => {
-          console.log(err);
-          this.props.history.push("/error");
-        });
+      .catch((err) => {
+        console.log(err);
+        this.props.history.push("/error");
+      });
+    // context.data
+    //   .updateCourse(id, course, authUser.emailAddress, authUser.password)
+    //   .then(error => {
+    //     if (error.name === "SequelizeValidationError") {
+    //       this.setState({ errors: error.errors });
+    //     } else if (error.status === 403) {
+    //       this.setState({ errors: [{ message: error.message }] });
+    //       this.props.history.push("/forbidden");
+    //     } else {
+    //         this.setState({ errors: [] });
+    //         this.props.history.push("/");
+    //     }
+    //   })
+  //       .catch((err) => {
+  //         console.log(err);
+  //         this.props.history.push("/error");
+  //       });
   }
 
   cancel = () => {

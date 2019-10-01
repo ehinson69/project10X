@@ -84,8 +84,8 @@ router.post(
 
       // Return validation errors
       const err = new Error("Validation Error");
-      err.errors = errorMessages;
       err.status = 400;
+      err.errors = errorMessages;
       next(err);
     } else {
       const course = Course.build(req.body);
@@ -135,9 +135,9 @@ router.put(
       const errorMessages = errors.array().map(error => error.msg);
 
       // Return the validation errors to the client.
-      const err = new Error("Validation Error");
-      err.errors = errorMessages;
+      const err = new Error();
       err.status = 400;
+      err.errors = errorMessages;
       next(err);
     } else {
       Course.findByPk(req.params.id)
